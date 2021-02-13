@@ -1,31 +1,22 @@
 import React from 'react';
 import {StyleSheet, Text, TextStyle, View, ViewStyle} from 'react-native';
-import LottieView from 'lottie-react-native';
 import {Button} from '../components';
 import {backgroundColor} from '../constants/colors';
 
 interface props {
   children?: JSX.Element;
-  navigation: any;
 }
 
-const StartScreen: React.FC<props> = ({navigation}) => {
+const VideoScreen: React.FC<props> = () => {
   return (
     <View style={styles.container}>
       <View>
         <Text style={styles.heading}>GameStop</Text>
         <Text style={styles.heading}>Fan</Text>
       </View>
-      <View style={styles.lottieWrapper}>
-        <LottieView source={require('../assets/games.json')} autoPlay loop />
-      </View>
+
       <View>
-        <Button
-          onPress={() => {
-            navigation.navigate('Home');
-          }}>
-          Start Explore
-        </Button>
+        <Button>Video Screen</Button>
       </View>
     </View>
   );
@@ -55,4 +46,4 @@ const styles = StyleSheet.create<Style>({
   },
 });
 
-export {StartScreen};
+export {VideoScreen};

@@ -1,12 +1,47 @@
 import React from 'react';
-import {View, Text,TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
+import {fontColor, secondaryColor} from '../../constants/colors';
 
-const Button = () => {
+interface Props {
+  children?: string;
+  onPress?: () => void;
+}
+
+const Button: React.FC<Props> = ({children, onPress}) => {
   return (
-    <View>
-      <Text></Text>
-    </View>
+    <TouchableOpacity style={styles.contain} onPress={onPress}>
+      <Text style={styles.text}>{children}</Text>
+    </TouchableOpacity>
   );
 };
+
+interface Style {
+  contain: ViewStyle;
+  text: TextStyle;
+}
+
+const styles = StyleSheet.create<Style>({
+  contain: {
+    width: '90%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: secondaryColor,
+    padding: 10,
+    borderRadius: 5,
+  },
+  text: {
+    fontSize: 22,
+    color: fontColor,
+    fontWeight: 'bold',
+  },
+});
 
 export {Button};
