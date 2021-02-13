@@ -13,8 +13,8 @@ const StartScreen: React.FC<props> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.heading}>GameStop</Text>
-        <Text style={styles.heading}>Fan</Text>
+        <Text style={styles.heading}>GAMESTOP</Text>
+        <Text style={styles.heading}>FAN</Text>
       </View>
       <View style={styles.lottieWrapper}>
         <LottieView source={require('../assets/games.json')} autoPlay loop />
@@ -24,7 +24,7 @@ const StartScreen: React.FC<props> = ({navigation}) => {
           onPress={() => {
             navigation.navigate('Home');
           }}>
-          Start Explore
+          Start Exploring
         </Button>
       </View>
     </View>

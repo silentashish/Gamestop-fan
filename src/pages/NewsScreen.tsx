@@ -1,23 +1,35 @@
 import React from 'react';
-import {StyleSheet, Text, TextStyle, View, ViewStyle} from 'react-native';
-import {Button} from '../components';
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextStyle,
+  View,
+  ViewStyle,
+  FlatList,
+} from 'react-native';
+import {Button, Header} from '../components';
+import NewsGrid from '../components/news/NewsGrid';
 import {backgroundColor} from '../constants/colors';
+import {stringData} from '../data';
 
 interface props {
   children?: JSX.Element;
 }
 
 const NewsScreen: React.FC<props> = () => {
+  const renderItem = ({item}: any) => {
+    return <NewsGrid {...item} />;
+  };
+
   return (
     <View style={styles.container}>
-      <View>
-        <Text style={styles.heading}>GameStop</Text>
-        <Text style={styles.heading}>Fan</Text>
-      </View>
-
-      <View>
-        <Button>News Screen</Button>
-      </View>
+      <Header>Gamestop News</Header>
+      <FlatList
+        data={stringData.newsData}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.image}
+      />
     </View>
   );
 };
@@ -32,7 +44,6 @@ const styles = StyleSheet.create<Style>({
   container: {
     flex: 1,
     backgroundColor: backgroundColor,
-    justifyContent: 'space-around',
   },
   heading: {
     fontWeight: 'bold',
