@@ -17,7 +17,7 @@ interface props {
 
 const NewsDetailsScreen: React.FC<props> = (props) => {
   const [loading, setLoading] = useState(true);
-  const {title, image, details, link} = props.route.params;
+  const {link} = props.route.params;
   return (
     <View style={styles.container}>
       <Header back>News</Header>
@@ -30,9 +30,10 @@ const NewsDetailsScreen: React.FC<props> = (props) => {
           />
         </View>
       )}
-      {link && (
-        <WebView source={{uri: link}} onLoad={() => setLoading(false)} />
-      )}
+      <WebView source={{uri: link}} onLoad={() => setLoading(false)} />
+      {/* {link && (
+        
+      )} */}
     </View>
   );
 };

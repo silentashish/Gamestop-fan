@@ -58,7 +58,7 @@ const styles = StyleSheet.create<Style>({
     width: '94%',
     borderRadius: 5,
     alignSelf: 'center',
-    marginTop: 10,
+    marginVertical: 5,
     borderWidth: 0.8,
     borderColor: 'white',
     flexDirection: 'row',
